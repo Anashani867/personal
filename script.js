@@ -24,9 +24,9 @@ loader = () => {
       //Get Visitor's name
       var visitor = document.querySelectorAll("#visitor");
 
-      var name = prompt("What name shall I call you?", "My Guest");
+    //  var name = prompt("What name shall I call you?", "My Guest");
 
-      if (name === "") {
+      /*if (name === "") {
         for (var i = 0; i < visitor.length; i++) {
           visitor[i].innerText = "My Guest";
         }
@@ -38,7 +38,7 @@ loader = () => {
         for (var i = 0; i < visitor.length; i++) {
           visitor[i].innerText = "My Guest";
         }
-      }
+      }*/
     }
   }, 40);
 };
@@ -58,7 +58,7 @@ window.addEventListener("scroll", function() {
 //auto typing texts
 var typed = new Typed(".typing", {
   strings: [
-    "CIS",
+    "Graduate CIS",
     "Frontend Developer",
     "Freelancer",
     
@@ -145,11 +145,11 @@ fetch(url)
 
 // Handling filter options on my projects
 
-var filter_buttons = document.querySelectorAll(".filter_bar ul li");
+var web_buttons = document.querySelectorAll(".web_bar ul li");
 
 const handleFilter = (elem, x) => {
-  //Making filter type be color green when clicked
-  filter_buttons.forEach(i => {
+  //Making web type be color green when clicked
+  web_buttons.forEach(i => {
     if (i == elem) {
       i.classList.add("active");
     } else {
@@ -165,12 +165,12 @@ const handleFilter = (elem, x) => {
     .then(data => {
       project_container.innerHTML = "";
       loading_screen.style.display = "flex";
-      let filter_array = data.filter(d => d.type == x);
+      let web_array = data.web(d => d.type == x);
 
       let sorted_array = data.sort((a, b) => b.id - a.id); //Sorting in Desc Order for Latest projects
 
-      if (filter_array.length > 0) {
-        filter_array.forEach(project => {
+      if (web_array.length > 0) {
+        web_array.forEach(project => {
           loading_screen.style.display = "none";
           project_container.innerHTML += `
                 <div class="p_cards">
